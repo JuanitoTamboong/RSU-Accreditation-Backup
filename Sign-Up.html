@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/rsu-logo1.png">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <title>SOA Accreditation  Sign-Up</title>
+  <script type="module" src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-container">
+      <div class="logo-wrap">
+        <img src="../assets/rsu-logo3.png" alt="RSU Logo">
+      </div>
+      <div class="logo-wrap">
+        <h2> student organization accreditation system</h2>
+      </div>
+    </div>
+    <div class="login-container">
+      <div class="login-wrap">
+        <!-- Loading Spinner -->
+        <div id="loading" class="loading-spinner" style="display: none;">
+          <div class="spinner"></div>
+        </div>
+        
+        <!-- Sign-Up Form -->
+        <div class="login-text">
+          <h4>Sign Up</h4>
+        </div>
+        <form id="signup-form">
+          <div class="form-fields">
+            <div class="signIn">
+              <label for="email">Email</label>
+              <input type="text" name="email" id="email" placeholder="Enter your email" required>
+            </div>
+           <!-- Sign-Up Form (add this section to your existing sign-up HTML) -->
+           <div class="signIn">
+            <label for="password">Password</label>
+            <div class="password-container">
+              <input
+                type="password"
+                name="password"
+                id="signup-password"
+                placeholder="Enter your password"
+                required
+              />
+              <i class="bx bx-hide" id="toggleSignupPassword"></i>
+            </div>
+            <!-- Password Criteria -->
+            <ul id="password-criteria" class="criteria-list hidden">
+              <li id="criteria-length" class="criteria-item">At least 6 characters</li>
+              <li id="criteria-uppercase" class="criteria-item">At least One uppercase letter</li>
+              <li id="criteria-lowercase" class="criteria-item">At least One lowercase letter</li>
+              <li id="criteria-number" class="criteria-item"> At least One number</li>
+              <li id="criteria-special" class="criteria-item">At least One special character</li>
+            </ul>
+          </div>          
+      <div class="signIn">
+      <label for="confirm-password">Confirm Password</label>
+      <div class="password-container">
+      <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm your password" required>
+      <i class='bx bx-hide' id="toggleConfirmPassword"></i>
+       </div>
+       </div>
+            <div class="signIn">
+              <input type="submit" value="Submit">
+            </div>
+          </div>
+          <!-- Consistent Style for 'Already have an account?' -->
+          <div class="register-container">
+            <p>Already have an account?</p>
+            <a href="index.html">Log In</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

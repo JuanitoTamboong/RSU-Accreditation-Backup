@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="student-org-application.css">
+    <link rel="icon" href="../assets/rsu-logo1.png">
+    <title>SOA Application Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!--script-->
+    <script type="module" src="app.js" defer></script>
+    <script type="module" src="verify-student-org.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="top-header">
+        <img src="../assets/rsu-logo1.png" alt="RSU Logo">
+        <h2>Student Organization Accreditation Form</h2>
+    </div>
+    
+    <div class="form-container">
+        <form id="application-form">
+            <div class="form-group">
+                <label for="representative-id">Representative Student ID Number:</label>
+                <p>Ensure that your student ID is verified by the admin. If it hasn't been verified, please enter your student ID to complete the verification</p>
+                <div class="input-container">
+                    <i class="fas fa-id-card"></i>
+                    <input type="text" id="representative-id" placeholder="Enter your Student ID number" required maxlength="15" oninput="formatStudentId(event)">
+                </div>
+                <div id="verification-status"></div>   
+            </div>   
+            <div class="form-group">
+                <label for="representative-name">Name of Representative:</label>
+                <div class="input-container">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="representative-name" placeholder="Enter your name" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="representative-position">Position:</label>
+                <div class="dropdown-container">
+                    <select id="representative-position-dropdown">
+                        <option value="">--Select a position--</option>
+                        <option value="President">President</option>
+                        <option value="Vice President">Vice President</option>
+                        <option value="Secretary">Secretary</option>
+                        <option value="Treasurer">Treasurer</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="school-year">School Year:</label>
+                <div class="input-container">
+                    <i class="fas fa-calendar-alt"></i>
+                    <input type="text" id="school-year" placeholder="Enter your school year" required readonly>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="course">Representative Course:</label>
+                <div class="dropdown-container">
+                    <select id="course-dropdown">
+                        <option value="">--Select a course--</option>
+                        <option value="BS Education">BS Education</option>
+                        <option value="BS Information Technology">BS Information Technology</option>
+                        <option value="BS Business and Accountancy">BS Business and Accountancy</option>
+                        <option value="BS Mechanical Engineering">BS Mechanical Engineering</option>
+                        <option value="BS Electrical Engineering">BS Electrical Engineering</option>
+                        <option value="BS Civil Engineering">BS Civil Engineering</option>
+                        <option value="BS Political Science">BS Political Science</option>
+                        <option value="BS Public Administration">BS Public Administration</option>
+                        <option value="BS Biology">BS Biology</option>
+                    </select>
+                    <button type="button" id="add-course" class="add-btn">+ Add Course</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="organization-name">Organization Name:</label>
+                <div class="dropdown-container">
+                    <select id="organization-name-dropdown"> 
+                        <option value="">--Select an organization--</option>
+                        <option value="CBASO">CBASO</option>
+                        <option value="CETSO">CETSO</option>
+                        <option value="CEDSO">CEDSO</option>
+                        <option value="CASSO">CASSO</option>
+                        <option value="CCMADI">CCMADISO</option>
+                    </select>
+                    
+                    <button type="button" id="add-organization" class="add-btn">+ Add Organization</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email-address">Email Address:</label>
+                <p>You may provide an alternative email address if you have one. This email will be used by the admin to send your request.</p>
+                <div class="input-container">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email-address" placeholder="Enter email address" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="date-filing">Date of Filing:</label>
+                <div class="input-container">
+                    <i class="fas fa-calendar-day"></i>
+                    <input type="text" id="date-filing" readonly>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="requirement-documents">Upload Requirement Documents:</label>
+                <p>(Only accepts PDF file)</p>
+                <div class="file-container">
+                    <input type="file" id="requirement-documents" accept=".pdf" required>
+                </div>
+            </div>
+            <div class="form-group submit-btn">
+                <button type="submit">Next</button>
+                <div id="loading" class="loading-spinner" style="display:none;">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="website icon" href="../assets/rsu-logo1.png">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="swal-popup.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="theme.css">
+    <script type="module" src="admin-dash.js" defer></script>
+    <script type="module" src="time-calendar.js" defer></script>
+    <script type="module" src="toogle-sidebar.js" defer></script>
+    <script type="module" src="setting.js" defer></script>
+    <!--<script type="module" src="admin-user.js" defer></script>-->
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="admin-user">
+                <img src="../assets/rsu-logo.png" alt="User Avatar" class="user-avatar"> 
+                <span class="user-name">Admin</span> 
+            </div>
+            <i class="fa-solid fa-xmark close-btn"></i>
+            <ul class="side-container">
+                <li><a href="admin-dashboard.html"><i class="fa-solid fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                <li><a href="in-progress.html"><i class="fa-solid fa-clock"></i><span>In Progress</span></a></li> <!-- Changed to In Progress -->
+                <li><a href="accredited.html"><i class="fa-solid fa-check-circle"></i><span>Accredited</span></a></li>
+                <li><a href="verified-student.html"><i class="fa-solid fa-user-check verified-icon"></i><span>Verified Student</span></a></li>
+                <li><a href="reports.html"><i class="fa-solid fa-file"></i><span>Reports</span></a></li>
+                <li><a href="../admin-login/admin-login.html"><i class="fa-solid fa-sign-out-alt"></i><span>Logout</span></a></li>
+            </ul>
+            <i class="fa-solid fa-bars menu-btn"></i>
+        </div>
+
+        <div class="section">
+            <div class="main-container">
+                <div class="top-container">
+                    <div class="top-content">
+                        <h2>Welcome Admin</h2>
+                    </div>
+                    <div class="notifications-dropdown">
+                        <div id="notification-icon" class="notification-icon">
+                            <span id="notification-count" class="notification-count">0</span>
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div id="notification-modal" class="notification-modal hidden">
+                            <button id="close-notification-modal" class="close-button">Close</button>
+                            <div class="notification-content">
+                                <ul id="notification-list">
+                                    <!-- Notifications will be populated here -->
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="setting">
+                            <p><i class="fa-solid fa-sun" id="theme-icon"></i></p>
+                        </div>                    
+                    </div>
+                </div>
+                <div class="sub-container">
+                    <div class="left-side-container">
+                        <div class="left-content">
+                            <i class="fa fa-users" id="applicants">
+                                <p>Applicants: <span id="applicant-count">0</span></p>
+                            </i>
+                            <!--<i class="fa fa-user-shield" id="admin-users">
+                                <p>Admins: <span id="admin-count">0</span></p>
+                            </i>-->
+                            <i class="fa fa-hourglass-half" id="in-progress"> <!-- Changed ID to in-progress -->
+                                <p>In Progress: <span id="in-progress-count">0</span></p> <!-- Changed label to In Progress -->
+                            </i>
+                            <i class="fa fa-check-circle" id="approved">
+                                <p>Approved: <span id="approved-count">0</span></p>
+                            </i>
+                            <i class="fa fa-times-circle" id="pending"> <!-- Changed ID to pending -->
+                                <p>Pending: <span id="pending-count">0</span></p> <!-- Changed label to Pending -->
+                            </i>
+                        </div>
+                        <div class="bottom-container">
+                            <p>We're excited to have you on board—navigate through our features to streamline your management tasks with ease</p>
+                            <img src="../assets/design.png" alt="">
+                        </div>
+                    </div>
+                    <div class="right-side-container">
+                        <div class="right-content">
+                            <div class="time"></div>
+                            <div class="calendar-app">
+                                <div class="calendar-header">
+                                    <button class="prev-month" onclick="changeMonth(-1)">&#10094;</button>
+                                    <h3 class="month-year" id="month-year"></h3>
+                                    <button class="next-month" onclick="changeMonth(1)">&#10095;</button>
+                                </div>
+                                <div class="days-of-week">
+                                    <span>Sun</span>
+                                    <span>Mon</span>
+                                    <span>Tue</span>
+                                    <span>Wed</span>
+                                    <span>Thu</span>
+                                    <span>Fri</span>
+                                    <span>Sat</span>
+                                </div>
+                                <div class="dates-grid" id="dates-grid"></div>
+                                <div class="event-details">
+                                    <h3 id="selected-date">Select a Date</h3>
+                                    <button onclick="addEvent()">Add Event</button>
+                                    <ul id="event-list"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

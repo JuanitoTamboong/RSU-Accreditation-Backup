@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View and manage student organization reports in the admin dashboard.">
+    <link rel="stylesheet" href="admin-dashboard.css">
+    <link rel="icon" href="../assets/rsu-logo1.png">
+    <title>Reports</title>
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="swal-popup.css">
+    <link rel="stylesheet" href="report.css">
+    <!-- Scripts -->
+    <script type="module" src="admin-dash.js" defer></script>
+    <script type="module" src="toogle-sidebar.js" defer></script>
+    <script type="module" src="setting.js" defer></script>
+    <script type="module" src="report.js" defer></script>
+    <!-- Include jsPDF library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- Include jsPDF-AutoTable plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.5/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="sidebar">
+            <div class="admin-user">
+                <img src="../assets/rsu-logo.png" alt="User Avatar" class="user-avatar"> 
+                <span class="user-name">Admin</span> 
+            </div>
+            <i class="fa-solid fa-xmark close-btn"></i>
+            <ul class="side-container">
+                <li><a href="admin-dashboard.html"><i class="fa-solid fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                <li><a href="in-progress.html"><i class="fa-solid fa-clock"></i><span>In Progress</span></a></li> <!-- Changed to In Progress -->
+                <li><a href="accredited.html"><i class="fa-solid fa-check-circle"></i><span>Accredited</span></a></li>
+                <li><a href="verified-student.html"><i class="fa-solid fa-user-check verified-icon"></i><span>Verified Student</span></a></li>
+                <li><a href="reports.html"><i class="fa-solid fa-file"></i><span>Reports</span></a></li>
+                <li><a href="../admin-login/admin-login.html"><i class="fa-solid fa-sign-out-alt"></i><span>Logout</span></a></li>
+            </ul>
+            <i class="fa-solid fa-bars menu-btn"></i>
+        </div>
+        <div class="section">
+            <div class="main-container">
+                <div class="top-container">
+                    <div class="top-content">
+                        <h2><i class="fa-solid fa-file"></i> Reports</h2>
+                    </div>
+                    <div class="notifications-dropdown">
+                        <div id="notification-icon" class="notification-icon">
+                            <span id="notification-count" class="notification-count">0</span>
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div id="notification-modal" class="notification-modal hidden">
+                            <button id="close-notification-modal" class="close-button">Close</button>
+                            <div class="notification-content">
+                                <ul id="notification-list"></ul>
+                            </div>
+                        </div>
+                        <div class="setting">
+                            <p><i class="fa-solid fa-sun" id="theme-icon"></i></p>
+                        </div>                    
+                    </div>
+                </div>
+                <span id="applicant-count" hidden>0</span>
+                <!-- Report Section -->
+                <div class="report-container">
+                    <form id="applicationReportForm" class="report-form">
+                        <label for="school-year">Enter School Year (e.g., 2024-2025):</label>
+                        <input type="text" id="school-year" required placeholder="2024-2025" maxlength="9" oninput="formattedSchoolYear(event)" />
+                        <button type="submit">Generate Report</button>
+                        <div class="chart-image">
+                            <img src="../assets/chart-people.png" alt="">
+                        </div>
+                    </form>
+                   <div class="content">
+                    <div class="download-report">
+                        <button id="downloadReport" class="download-button">
+                            <i class="fa-solid fa-download"></i> Download Report
+                        </button>
+
+                    </div>                    
+                    <div class="charts">
+                        <!-- Total Applicants Chart -->
+                        <div class="chart-container">
+                            <h1>Total Applicants</h1>
+                            <canvas id="totalApplicationsChart" width="400" height="200"></canvas>
+                        </div>
+                
+                        <!-- Total Accredited Applications Chart -->
+                        <div class="chart-container">
+                            <h1>Total Accredited Applications</h1>
+                            <canvas id="totalAccreditedChart" width="400" height="200"></canvas>
+                        </div>
+                
+                        <!-- Total Reaccredited Applications Chart -->
+                        <div class="chart-container">
+                            <h1>Total Reaccredited Applications</h1>
+                            <canvas id="totalReAccreditedChart" width="400" height="200"></canvas>
+                        </div>
+                
+                        <!-- Total Rejected Applications Chart -->
+                        <div class="chart-container">
+                            <h1>Total Pending Applications</h1>
+                            <canvas id="totalPendingChart" width="400" height="200"></canvas>
+                        </div>
+                        <!-- Total Applicants Line Chart -->
+                         <div class="full-chart">
+                        <div class="chart-container-full">
+                            <h1>Applicants Over Time by Organization</h1>
+                            <canvas id="applicantsOverTimeByOrganizationChart" width="400" height="300"></canvas>
+                           </div>
+                         </div>
+                      </div>
+                  </div>   
+                </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--loading indicator -->
+<div id="loadingIndicator" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background-color: rgba(0, 0, 0, 0.7); color: white; font-size: 18px; border-radius: 10px;">
+    Generating report, please wait...
+</div>
+</body>
+</html>

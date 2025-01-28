@@ -1,0 +1,100 @@
+:root {
+    --primary-color: #0D1B2A;
+    --accent-color: #1B263B;
+    --background-color: #F0F4F8;
+    --card-background: #FFFFFF;
+    --input-border-color: #E0E0E0;
+    --text-color-primary: #FFFFFF;
+    --text-color-secondary: #D0D0D0;
+    --button-hover-color: #415A77;
+    --button-background: #1B263B;
+    --declined-button: #740303f5;
+    --applicants: #023a02;
+}
+
+.table-container {
+    margin-top: 20px;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.in-progress-table {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.in-progress-requests {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background-color: var(--background-color);
+    min-width: 900px;
+    table-layout: fixed;
+}
+
+.in-progress-requests th, .in-progress-requests td {
+    padding: 12px;
+    border: 1px solid var(--input-border-color);
+    /*white-space: nowrap;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.in-progress-requests th {
+    width: 15%;
+    text-align: left;
+    background-color: var(--background-color);
+    color: rgb(0, 128, 87);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-top: 1px solid var(--input-border-color);
+    border-bottom: 1px solid var(--input-border-color);
+}
+
+.in-progress-requests td {
+    width: 15%;
+    text-align: left;
+}
+
+.in-progress-requests td:nth-child(1) {
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 150px;
+}
+
+.in-progress-requests td:nth-child(2), .in-progress-requests td:nth-child(3) {
+    overflow-wrap: break-word;
+}
+
+.in-progress-requests tr:hover {
+    background-color: #51759019;
+}
+
+.view-link, .delete-btn {
+    white-space: nowrap;
+    text-align: center;
+    display: inline-block;
+}
+
+.view-link {
+    color: var(--button-hover-color);
+    text-decoration: none;
+    background-color: var(--button-hover-color);
+    padding: 5px 15px;
+    color: var(--text-color-primary);
+    border-radius: 20px;
+    font-size: 9px;
+}
+
+.delete-btn {
+    background-color: rgb(205, 23, 23);
+    padding: 5px 15px;
+    color: var(--text-color-primary);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 9px;
+}

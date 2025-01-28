@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="../assets/rsu-logo1.png">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <title>SOA Accreditation  Login</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+  <script type="module" src="main.js"></script>
+  <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
+  <script src="https://js.hcaptcha.com/1/api.js?hl=fr" async defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-container">
+      <div class="logo-wrap">
+        <img src="../assets/rsu-logo3.png" alt="RSU Logo">
+      </div>
+      <div class="logo-wrap">
+        <h2>student organization accreditation system</h2>
+      </div>
+    </div>
+    <div class="login-container">
+      <div class="login-wrap">
+        <!-- Loading Spinner -->
+        <div id="loading" class="loading-spinner" style="display:none;">
+          <div class="spinner"></div>
+        </div>
+        
+        <!-- Login Form student  -->
+        <div class="login-text">
+          <h4>Login</h4>
+        </div>
+        <form id="login-form">
+          <div class="form-fields">
+            <div class="signIn">
+              <label for="email">Email</label>
+              <input type="text" name="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="signIn">
+              <label for="password">Password</label>
+              <div class="password-container">
+                <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                <i class='bx bx-hide' id="togglePassword"></i>
+              </div>
+            </div>  
+            <div class="signIn">
+              <!-- hCAPTCHA -->
+              <div class="h-captcha" data-sitekey="02a23092-e2a8-4ac8-90c0-f3d42da20534" data-theme="light" data-hl="en"></div>
+            </div>          
+            <div class="signIn">
+              <input type="submit" value="Sign In">
+            </div>
+          </div>
+          <div class="forgot-pass">
+            <a href="#" id="forgot-password-link">Forgot Password?</a>
+          </div>
+          <div class="register-container">
+            <p>Don't have an account?</p>
+            <a href="#" id="register-link">Register</a>
+          </div>
+        </form>        
+      </div>
+    </div>    
+  </div>
+</body>
+</html>

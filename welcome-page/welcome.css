@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700&display=swap');
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --signIn-Color: rgb(19, 67, 36);
+    --button: #2a8633;
+    --font-color: #fff;
+    --box-shadow: #597d9b;
+    --bg-bx-color: #141a1e56;
+    --hover-color: #3aba47;
+    --spinner-color: #3aba478a;
+}
+
+ body {
+  height: 100%; /* Ensure the body takes up the full height */
+  margin: 0;
+  padding: 0;
+  background-image: url('../assets/Home.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Centering Container */
+.container {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+}
+
+/* Header styles in guide container */
+.header {
+  position: relative;
+  padding:30px;
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 4px 10px rgba(var(--box-shadow), 0.1);
+  background-image: url('../assets/rsu-landmark.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+}
+
+/* Overlay styles */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Ensure overlay is behind content */
+    background-color: rgba(0, 0, 0, 0.495); /* Add a dark overlay */
+}
+
+/* Adjust positioning of child elements */
+.header > * {
+    position: relative; 
+    z-index: 2;
+}
+
+/* Flex container for guidelines and image */
+.guide-container {
+    width: 100%;
+    max-width: 900px;
+    gap: 20px;
+    background-color: var(--font-color);
+   /* border-radius: 0px 0px 10px 10px;*/
+    padding: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
+  }
+  
+
+/* Logo and Title Styles */
+.guide-logo {
+  height: 70px;
+  margin-right: 10px;
+}
+
+.guide-title {
+  color: var(--signIn-Color);
+  margin-top: 10px;
+  text-transform: uppercase;
+  
+}
+
+/* Guide section */
+.guide {
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: inset 1px 0px 10px var(--box-shadow);
+}
+
+.header h2 {
+  color: var(--font-color);
+}
+.guide img{
+    height: 100px;
+    width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(1px 1px #000);
+    animation: guide-img 1.2s infinite alternate;
+    filter: drop-shadow(1px 0px 2px var(--box-shadow));
+}
+@keyframes guide-img{
+    0%{transform: translateY(-8px);}
+    100%{transform: translateY(10px);}
+}
+.guide h2 {
+  margin-bottom: 20px;
+  color: var(--signIn-Color);
+  text-align: center;
+}
+
+.guide label {
+  font-size: 15px; 
+  color: var(--signIn-Color);
+  font-weight: 500;
+}
+.guide-content {
+  background-image: url('../assets/guide-design.png');
+  color: var(--font-color);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: auto; /* Use auto height */
+  border-radius: 10px;
+  margin-top: 4px;
+  padding: 30px; /* Add some padding for mobile */
+}
+.guide-content p {
+  color: var(--signIn-Color);
+  padding: 10px; /* Adjust padding for mobile */
+  text-align: center;
+  font-size: 13px;
+}
+
+/* Style for select element */
+select {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--box-shadow);
+  margin: 10px 0; /* Vertical margin only */
+  background-color: var(--font-color);
+  color: var(--signIn-Color);
+  box-shadow: inset 1px 0px 1px var(--box-shadow);
+}
+
+/* Style for list */
+.guide-list {
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    display: grid; /* Use grid for layout */
+    grid-template-columns: repeat(2, 1fr); /* Create two equal columns */
+    gap: 10px; /* Space between checkboxes */
+    font-size: 15px;
+  }
+  
+  /* List styles */
+.guide-list {
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    display: grid; /* Use grid for layout */
+    grid-template-columns: repeat(2, 1fr); /* Create two equal columns */
+    gap: 10px; /* Space between checkboxes */
+}
+
+.guide-list li {
+    background:rgba(105, 101, 101, 0.089);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    color: #333;
+    display: flex;
+    align-items: center; 
+    min-height: 30px;
+}
+
+/* Customize the checkbox appearance */
+input[type="checkbox"] {
+    appearance: none;
+    width: 24px; 
+    height: 24px;
+    border-radius: 5px; 
+    border: 2px solid var(--button);
+    background-color:var(--font-color); 
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+    margin-right: 10px;
+    position: relative;
+    flex-shrink: 0; /* Prevent checkbox from shrinking */
+}
+
+/* Checked state styling */
+input[type="checkbox"]:checked {
+    background-color: var(--button); /* Background color when checked */
+    border-color: var(--hover-color); /* Border color when checked */
+}
+
+/* Checkmark styling */
+input[type="checkbox"]:checked::after {
+    content: "\2713"; /* Unicode checkmark */
+    color: #fff; /* Checkmark color */
+    font-size: 16px; /* Checkmark size */
+    position: absolute; /* Position checkmark */
+    top: 2px; /* Vertical position */
+    left: 4px; /* Horizontal position */
+}
+
+/* Button styling */
+.button-container {
+  width: 100%;
+  margin-top: 10px;
+}
+
+button {
+  padding: 10px;
+  width: 100%;
+  background-color: var(--button);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: var(--font-color);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+button:hover {
+  background-color: var(--hover-color);
+  cursor: pointer;
+}
+
+
+.swal2-input {
+  border-radius: 5px; /* Round the corners of the input fields */
+  border: 1px solid #ccc; /* Add a border for better visibility */
+  margin: 0;
+}
+.custom-swal-title {
+  font-size: 24px; /* Adjust font size as needed */
+  font-weight: bold; /* Makes the title bold */
+  color:var(--box-shadow); /* Change text color */
+  margin-bottom: 20px; /* Space below the title */
+  text-align: center; /* Center the title text */
+}
+
+/* Other styles can remain the same */
+.custom-swal-popup {
+  width: 100%; /* Adjust this width as needed */
+  max-width: 500px; /* Maximum width of the modal */
+  margin: auto; /* Center the modal */
+  border-radius: 15px; /* Optional: add rounded corners */
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.163); /* Optional: add a shadow for depth */
+}
+.swal-actions {
+  display: flex; /* Use flexbox for the button container */
+  justify-content: space-between; /* Space buttons evenly */
+  margin-top: 20px; /* Optional spacing above buttons */
+  
+}
+.swal-button {
+  flex: 1; /* Allow buttons to grow and fill space */
+  margin: 0 5px; /* Add margin between buttons */
+  padding: 10px 20px; /* Ensure both buttons have equal padding */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  border: none; /* Remove default border */
+  font-size: 16px; /* Adjust font size for better readability */
+  color: white; /* Default text color for both buttons */
+}
+.swal-button-search {
+  background-color:var(--button); /* Green color for Search button */
+  font-size: 13px;
+}
+.swal-button-cancel {
+  background-color:var(--box-shadow); /* Red color for Cancel button */
+  font-size: 13px;
+}
+.swal-button:hover {
+  opacity: 0.9; /* Slight opacity change on hover */
+}
+.swal2-popup{
+  width: 30%;
+  font-size: 15px;
+}
+.swal2-title {
+  font-size:23px; /* Larger font size */
+}
+/* Responsive styles */
+@media (max-width: 768px) {
+  .header{
+   padding: 15;
+  }
+    .header h2{
+      font-size: 15px; /* 1.5rem = 24px */
+      font-weight:bold;
+      margin-top: 10px;
+    }
+    .guide-logo{
+      height: 70px;
+      width: 70px;
+     object-fit: contain;
+    }
+    .guide-container {
+      width: 100%;
+      margin: 0;
+      padding:5px;
+    }
+   .guide h2{
+    font-size: 15px;
+   }
+    .guide-list {
+      grid-template-columns: 1fr;
+      gap: 5px; 
+      font-size: 14px;
+    
+    }
+  
+    .guide-list li {
+      padding: 15px; 
+      min-height: 40px; 
+    }
+  
+    input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+    }
+    .guide-content {
+     background-image: url('../assets/guide-design-mobile.png');
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: contain;
+    }
+  
+    .guide-content p {
+      font-size: 14px; 
+      padding: 10px; 
+    }
+    .custom-swal-popup {
+      font-size: 15px;
+      width: 100%;
+    }
+    .swal2-popup{
+      width: 100%;
+      font-size: 13px;
+    }
+    .swal2-title {
+      font-size:17px;
+    }
+  }
+  @media (max-width: 480px) { /* For mobile phones */
+    .guide-content {
+      padding: 10px; 
+    }
+  
+    .guide-content p {
+      font-size: 12px; 
+      padding: 5px; 
+    }
+   
+  }
+  

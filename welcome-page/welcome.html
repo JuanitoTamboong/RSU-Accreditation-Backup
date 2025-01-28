@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="welcome.css">
+    <link rel="icon" href="../assets/rsu-logo1.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <title>Welcome</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="guide.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="../assets/rsu-logo1.png" alt="RSU Logo" class="guide-logo">
+            <h2 class="guide-title">student organization accreditation system</h2>
+        </div>
+        <div class="guide-container">
+            <div class="guide">
+                <img src="../assets/checklist.png" alt="Checklist">
+                <h2>Requirements to Follow</h2>
+                <label for="guide-selector">Type of Service:</label>
+                <select id="guide-selector" required>
+                    <option value="">--Select Service Type--</option>
+                    <option value="new-organization">Accreditation</option>
+                    <option value="re-accreditation">Re-Accreditation</option>
+                </select>
+                <div class="guide-content">
+                <p>Please check the requirements documents and upload them as one PDF file 😊</p>
+                </div>
+                <ul class="guide-list" id="guide-list"></ul>
+                <div class="button-container">
+                    <button class="proceed-btn" id="proceed-btn" disabled>Proceed</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

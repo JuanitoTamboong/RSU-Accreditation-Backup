@@ -1,0 +1,82 @@
+:root {
+  --primary-color: #0D1B2A;
+  --accent-color: #1B263B;
+  --background-color: #F0F4F8;
+  --card-background: #FFFFFF;
+  --input-border-color: #E0E0E0;
+  --text-color-primary: #FFFFFF;
+  --text-color-secondary: #D0D0D0;
+  --button-hover-color: #415A77;
+  --button-background: #1B263B;
+  --declined-button: #740303f5;
+  --applicants: #023a02;
+}
+
+.table-container {
+  margin-top: 20px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.table-body-container {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.accredited-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background-color: var(--background-color);
+  table-layout: fixed;
+}
+
+.accredited-table th, .accredited-table td {
+  padding: 12px;
+  border: 1px solid var(--input-border-color);
+  /*white-space: nowrap;*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.accredited-table th, .accredited-table td {
+  width: 15%;
+}
+
+.accredited-table td:nth-child(3) {
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-width: 150px;
+}
+
+.accredited-table td:nth-child(2), 
+.accredited-table td:nth-child(1) {
+  overflow-wrap: break-word;
+}
+
+.accredited-table th {
+  position: sticky;
+  top: 0;
+  background-color: var(--background-color);
+  color: rgb(0, 128, 87);
+  z-index: 1;
+  border-top: 1px solid var(--input-border-color);
+  border-bottom: 1px solid var(--input-border-color);
+}
+
+.accredited-table tr:hover {
+  background-color: #51759019;
+}
+
+.delete-btn {
+  background-color: rgb(205, 23, 23);
+  padding: 5px 15px;
+  color: var(--text-color-primary);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 9px;
+}

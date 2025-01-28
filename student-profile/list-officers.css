@@ -1,0 +1,552 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --signIn-Color: rgb(19, 67, 36);
+  --button: #2a8633;
+  --font-color: #fff;
+  --box-shadow: #597d9b;
+  --bg-bx-color: #141a1e56;
+  --hover-color: #3aba47;
+  --spinner-color: #3aba478a;
+}
+
+/* Loading Spinner Styles */
+.loading-spinner {
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  border: 12px solid rgba(0, 0, 0, 0.1);
+  border-left: 12px solid var(--spinner-color);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Navigation Bar Styles */
+.nav-bar {
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  background-color: var(--signIn-Color);
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+}
+
+.top-nav h2 {
+  padding-left: 20px;
+  color: var(--font-color);
+  font-size: 20px;
+}
+
+.top-nav img {
+  height: 50px;
+  object-fit: contain;
+}
+
+/* Search Bar Styles */
+.search-bar {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 480px;
+}
+
+.search-bar i {
+  position: absolute;
+  right: 0; 
+  font-size: 20px;
+  color: var(--box-shadow);
+  padding: 8px;
+  cursor: pointer;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 15px 40px 15px 15px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+/* Dropdown Styles */
+#dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 90%;
+  border: 1px solid var(--box-shadow);
+  background-color: var(--font-color);
+  max-height: 200px; 
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+border-radius: 5px;
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  color: var(--signIn-Color);
+}
+
+.dropdown-item:hover {
+  background-color: var(--box-shadow);
+  color: var(--font-color);
+}
+
+#search-input {
+  padding-right: 40px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+
+}
+
+/* List Officers Styles */
+.list-officers {
+  flex-wrap: wrap;
+  box-shadow: inset 1px 1px 10px var(--box-shadow);
+  padding: 15px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 50%;
+}
+.student-profile h3 {
+  color: var(--signIn-Color);
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 25px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+label.upload-label {
+  height: 180px;
+  width: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 15px auto;
+  border: 2px dashed var(--box-shadow);
+  border-radius: 10px;
+  color: var(--signIn-Color);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+label.upload-label:hover {
+  background-color: var(--box-shadow);
+  color: var(--font-color);
+}
+
+label.upload-label img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+label.upload-label span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  text-align: center;
+}
+/* Student ID Styles */
+.student-id {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+}
+
+.student-id label {
+  color: var(--signIn-Color);
+  margin-bottom: 5px;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+.input-container input {
+  width: 100%; 
+  padding: 15px 15px 15px 40px; 
+  border: 1px solid var(--box-shadow);
+  border-radius: 25px;
+  box-sizing: border-box;
+  max-width: 100%; 
+}
+
+.input-container i {
+  position: absolute;
+  left: 15px; /* Position icon inside the input */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: var(--box-shadow);
+}
+
+/* Student Info Styles */
+.student-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%; 
+}
+
+.student-info label {
+  color: var(--signIn-Color);
+}
+
+.student-info input {
+  padding: 15px 15px 15px 40px; 
+  border: 1px solid var(--box-shadow);
+  border-radius: 25px;
+  width: 100%; 
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* Position Container Styling */
+.position-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /
+}
+
+/* Styling for the dropdown */
+select#position {
+  padding: 10px 15px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 200px;
+  transition: all 0.3s ease-in-out;
+}
+
+select#position:focus {
+  border-color:var(--box-shadow); 
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Add Position Button Styling */
+.add-position-btn {
+  display: flex;
+  align-items: center;
+  padding: 10px 5px;
+ background-color:rgba(33, 73, 83, 0.948);
+  color:var(--font-color);
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-position-btn i {
+  margin-right: 5px;
+}
+
+.add-position-btn:hover {
+ background-color: #597d9b;
+}
+
+/* Focus effect for the button */
+.add-position-btn:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Optional: Adjusting button size for better UI */
+.add-position-btn {
+  font-size: 16px;
+  padding: 12px 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+/* Add/Update Button Styles */
+.add-update {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px; 
+  width: 100%; 
+}
+
+.add-update button {
+  padding: 10px;
+  width: 100%;
+  color: var(--font-color);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+
+.add-update button i {
+  font-size: 17px;
+}
+
+.add-update .update-btn {
+  background-color: var(--box-shadow);
+}
+
+.add-update .add-btn {
+  background-color: var(--button);
+}
+
+.add-update button:hover {
+  background-color: var(--hover-color);
+}
+
+/* Profiles Container Styles */
+.profiles-container {
+  width: 48%;
+  max-height: 350px;
+  
+
+}
+.added-profiles{
+  box-shadow: inset 1px 1px 10px var(--box-shadow);
+  padding: 20px;
+  border: 1px solid var(--box-shadow);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 75vh;
+  background-image: url('../assets/mobile-size-bg.png');
+  background-repeat: no-repeat;
+  background-size: 113% 100%;
+
+  
+  
+}
+.clear-list{
+  padding: 10px;
+  margin-top:-10px;
+}
+.clear-list button{
+float: right;
+padding:9px;
+border: none;
+cursor: pointer;
+border-radius: 10px;
+width: 70px;
+ box-shadow: 0px 0px 2px var(--bg-bx-color);
+color: #000;;
+
+}
+.clear-list button:hover{
+  background-color:rgb(163, 0, 0);
+  color: var(--font-color);
+  transition: all 0.4s ease-in-out;
+}
+.table-wrapper {
+  flex: 1;
+  max-height: 300px; /* Set a maximum height for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */ 
+  background-color:rgb(255, 255, 255);
+  box-shadow: 0px 0px 2px rgb(84, 83, 83) ;
+ 
+}
+.added-profiles h3 {
+  color: var(--signIn-Color);
+  margin-bottom: 15px;
+  
+}
+
+.added-profiles table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto; 
+  
+}
+
+.added-profiles th,
+.added-profiles td {
+  border: 1px solid rgb(0, 0, 0);
+  padding: 8px;
+  text-align:center;
+  word-wrap: break-word; 
+  overflow: hidden;
+  color: #000;
+  
+  
+}
+.added-profiles th {
+  background-color: var(--box-shadow);
+  color: var(--font-color);
+}
+.delete-btn{
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Submit Button Styles */
+.submit-btn {
+  margin-top: 10px;
+  padding-top: 20px;
+  position: relative;
+  
+
+}
+
+.submit-btn button {
+  background-color: var(--box-shadow);
+  color: var(--font-color);
+  padding: 15px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 20%;
+  float: right;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.submit-btn button:hover {
+  background-color: var(--hover-color);
+}
+
+@media (max-width:1300px) {
+  .container{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  }
+  .list-officers{
+    width: 100%;
+  
+  }
+  .added-profiles{
+    width: 100%;
+    
+
+   
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+   margin: 0;
+   padding: 5px;
+
+  }
+
+  .nav-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    padding-top: 20px;
+    width: 100%;
+    margin: 0;
+    
+  }
+  #dropdown-list {
+    width: 89%;
+  }
+
+  .top-nav h2 {
+    font-size: 26px;
+  }
+
+  .list-officers {
+    flex-direction: column;
+    width: 100%;
+    gap:5;
+    padding: 10;
+
+  }
+label{
+  padding: 10px;
+}
+  .student-info {
+    margin: 0;
+  }
+
+  .profiles-container {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .add-update {
+    flex-direction: column;
+  }
+  .add-position-btn{
+    font-size: 11px;
+    padding: 10px 15px;
+  }
+  .add-update button {
+    margin: 0;
+    
+  }
+
+  th, td {
+    font-size: 11px;
+  }
+  .submit-btn{
+    margin: 0;
+    padding:15px;
+  }
+  .submit-btn button{
+    float: none;
+    width: 100%;
+  }
+  
+}

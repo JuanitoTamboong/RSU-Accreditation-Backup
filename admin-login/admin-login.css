@@ -1,0 +1,168 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --primary-color: #0D1B2A;
+  --accent-color: #1B263B;
+  --background-color: #F0F4F8;
+  --card-background: #FFFFFF;
+  --input-border-color: #E0E0E0;
+  --text-color-primary: #E0E0E0;
+  --text-color-secondary: #7C8A97;
+  --button-hover-color: #415A77;
+  --button-background: #1B263B;
+}
+
+body {
+  background-color: var(--accent-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px; /* Added padding for smaller screens */
+}
+
+.container {
+  width: 100%;
+  max-width: 780px;
+  border-radius: 50px;
+  overflow: hidden;
+  border: 8px solid var(--primary-color);
+  display: flex;
+  align-items: stretch;
+  background-image: url('../assets/admin-bg.png');
+  flex-direction: row;
+}
+
+.left-section {
+  width: 50%;
+}
+
+.left-section img {
+  object-fit: contain;
+  height: 500px;
+  width: auto;
+  filter: drop-shadow(1px 5px 0px var(--accent-color));
+  transition: all 1s;
+  animation: icon-move 1.5s;
+}
+
+@keyframes icon-move {
+  0% {transform: translateX(-400px);}
+}
+
+.admin-container {
+  padding: 50px;
+  text-align: center;
+  width: 50%;
+  background-color: var(--primary-color);
+}
+
+.admin-container img {
+  object-fit: contain;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.admin-container h2 {
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--card-background);
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.admin-form label {
+  text-align: left;
+  color: var(--text-color-secondary);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.input-container {
+  position: relative;
+}
+
+#toggle-password {
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color-secondary);
+}
+
+.admin-form input {
+  padding: 10px;
+  padding-right: 40px;
+  width: 100%;
+  border: 1px solid var(--input-border-color);
+  border-radius: 15px;
+  font-size: 13px;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.admin-form input:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+.email-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-color-secondary);
+}
+
+.forgot-password {
+  text-align: right;
+  padding-top: 8px;
+}
+
+.forgot-password a {
+  font-size: 12px;
+  color: var(--text-color-secondary);
+}
+
+.submit {
+  margin-top: 20px;
+}
+
+.submit button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--button-background);
+  color: var(--text-color-primary);
+  border: none;
+  border-radius: 15px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.swal-modal {
+  background-color: var(--button-background);
+  border-radius: 30px;
+  color: var(--text-color-primary);
+  width: 30%;
+  font-size: 13px;
+}
