@@ -5,13 +5,13 @@ import { getStorage, ref, uploadBytes } from 'https://www.gstatic.com/firebasejs
 
 // Firebase configuration
 const firebaseConfigVerification ={
-    apiKey: "AIzaSyCLEKn7V0CQMSMUYdybbeYcu5bwZICrBLQ",
-    authDomain: "student-org-backup.firebaseapp.com",
-    projectId: "student-org-backup",
-    storageBucket: "student-org-backup.firebasestorage.app",
-    messagingSenderId: "287364565723",
-    appId: "1:287364565723:web:60b05dee7d3b7196451afe"
-  };
+        apiKey: "AIzaSyCyVpJ3sr49cWjFMng7ud9LHGCR-xEaptU",
+        authDomain: "student-org-backup-51aa3.firebaseapp.com",
+        projectId: "student-org-backup-51aa3",
+        storageBucket: "student-org-backup-51aa3.firebasestorage.app",
+        messagingSenderId: "374718998015",
+        appId: "1:374718998015:web:b0f0c15a56c599c25eb3ca"
+      };
 
 const appVerification = initializeApp(firebaseConfigVerification, "verification");
 const dbVerification = getFirestore(appVerification);
