@@ -8,17 +8,15 @@ import {
   sendPasswordResetEmail,
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
-// Firebase configuration
+// Firebase configuration backup
 const firebaseConfig = {
-  apiKey: "AIzaSyDXQCFoaCSWsCV2JI7wrOGZPKEpQuNzENA",
-  authDomain: "student-org-5d42a.firebaseapp.com",
-  databaseURL: "https://student-org-5d42a-default-rtdb.firebaseio.com",
-  projectId: "student-org-5d42a",
-  storageBucket: "student-org-5d42a.appspot.com",
-  messagingSenderId: "1073695504078",
-  appId: "1:1073695504078:web:d2cd33e1b0fc6c82e0829f",
+  apiKey: "AIzaSyCLEKn7V0CQMSMUYdybbeYcu5bwZICrBLQ",
+  authDomain: "student-org-backup.firebaseapp.com",
+  projectId: "student-org-backup",
+  storageBucket: "student-org-backup.firebasestorage.app",
+  messagingSenderId: "287364565723",
+  appId: "1:287364565723:web:ce0e52c5c862c8c4451afe"
 };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
