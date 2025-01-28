@@ -4,7 +4,7 @@ import { getFirestore, collection, query, where, getDocs, addDoc, onSnapshot } f
 import { getStorage, ref, uploadBytes } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js';
 
 // Firebase configuration
-const firebaseConfig = {
+const firebaseConfigVerification ={
     apiKey: "AIzaSyCLEKn7V0CQMSMUYdybbeYcu5bwZICrBLQ",
     authDomain: "student-org-backup.firebaseapp.com",
     projectId: "student-org-backup",
