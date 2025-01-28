@@ -4,14 +4,14 @@ import { getFirestore, collection, query, where, getDocs, addDoc, onSnapshot } f
 import { getStorage, ref, uploadBytes } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js';
 
 // Firebase configuration
-const firebaseConfigVerification = {
-    apiKey: "AIzaSyDXQCFoaCSWsCV2JI7wrOGZPKEpQuNzENA",
-    authDomain: "student-org-5d42a.firebaseapp.com",
-    projectId: "student-org-5d42a",
-    storageBucket: "student-org-5d42a.appspot.com",
-    messagingSenderId: "1073695504078",
-    appId: "1:1073695504078:web:eca07da6a1563c46e0829f"
-};
+const firebaseConfig = {
+    apiKey: "AIzaSyCLEKn7V0CQMSMUYdybbeYcu5bwZICrBLQ",
+    authDomain: "student-org-backup.firebaseapp.com",
+    projectId: "student-org-backup",
+    storageBucket: "student-org-backup.firebasestorage.app",
+    messagingSenderId: "287364565723",
+    appId: "1:287364565723:web:60b05dee7d3b7196451afe"
+  };
 
 const appVerification = initializeApp(firebaseConfigVerification, "verification");
 const dbVerification = getFirestore(appVerification);
